@@ -168,7 +168,7 @@ def raspberryRecognizer ():
         	face = cv2.resize(face, (size, size))
 
 		record_data = {}
-		record_data['result'] = 1
+		record_data['result'] = is_my_face(face)
 		prepared_record_data = json.dumps(record_data)
 		client.publish(topic = 'record/webcam', payload = prepared_record_data)
         	key = cv2.waitKey(30) & 0xff
