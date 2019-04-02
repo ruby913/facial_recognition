@@ -13,12 +13,16 @@ import greengrasssdk
 import platform
 from threading import Timer
 import json
+from picamera import PiCamera
+from picamera.array import PiRGBArray
 
 client = greengrasssdk.client('iot-data')
 my_faces_path = './positive_faces'
 other_faces_path = './negative_faces'
 model_path = './model'
 size = 64
+camera = PiCamera()
+rawCapture = PiRGBArray(camera)
 
 imgs = []
 labs = []
@@ -138,10 +142,11 @@ def is_my_face(image):
 
 detector = dlib.get_frontal_face_detector()
 
-cam = cv2.VideoCapture(0)  
+# cam = cv2.VideoCapture(0)  
    
 while True:  
-    _, img = cam.read()  
+    camera.capture('myface.jpg');
+    _, img = cv2.imread('myface.jpg')  
     gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     dets = detector(gray_image, 1)
     if not len(dets):
