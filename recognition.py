@@ -17,9 +17,9 @@ from picamera import PiCamera
 from picamera.array import PiRGBArray
 
 client = greengrasssdk.client('iot-data')
-#folder for your own face images
+#You can place the face which you want the model to recognize in this folder
 my_faces_path = './positive_faces'
-#folder for the traning data set
+#You can put more face pics as training data set to improve the accurancy.
 other_faces_path = './negative_faces'
 model_path = './model'
 size = 64
