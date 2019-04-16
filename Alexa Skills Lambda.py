@@ -1,3 +1,4 @@
+#This Lambda function is called by Alexa Skills to invoke the webcam
 from __future__ import print_function
 import urllib2
 import xml.etree.ElementTree as etree
