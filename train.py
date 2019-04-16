@@ -1,4 +1,4 @@
-# -*- codeing: utf-8 -*-
+#This function helps you to implement your training programs.
 import tensorflow as tf
 import cv2
 import numpy as np
